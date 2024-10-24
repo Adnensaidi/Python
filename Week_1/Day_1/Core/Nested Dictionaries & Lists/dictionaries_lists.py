@@ -4,15 +4,13 @@ x [1][0] = 15
 
 # 1.1 Change the last_name of the first student from 'Jordan' to 'Bryant'
 
-students [0]{'last_name'} = Bryan 
-
+students [0]['last_name'] = 'Bryan
 # 1.2 In the sports_directory, change 'Messi' to 'Andres'
 
-sports_directory {'soccer'} [0] = Andres 
-
+sports_directory ['soccer'][0] = 'Andres' 
 # 1.3 Change the value 20 in z to 30
 
-z [0] {'y'} = 30 
+z[0]['y'] = 30
 
 # 2 Create a function iterateDictionary(some_list) that, given a list of dictionaries, the function loops
 # through each dictionary in the list and prints each key and the associated value. 
@@ -38,7 +36,7 @@ students = [
 ]
 def iteratedDictionary2(key_name, some_list) :
 
-    for i in range (some_list([i])) :
+    for i in range(len(some_list)):
         print(some_list[i]["first_name"])
         print(some_list[i]["last_name"])
 
