@@ -4,7 +4,7 @@ x [1][0] = 15
 
 # 1.1 Change the last_name of the first student from 'Jordan' to 'Bryant'
 
-students [0]['last_name'] = 'Bryan
+students [0]['last_name'] = 'Bryan'
 # 1.2 In the sports_directory, change 'Messi' to 'Andres'
 
 sports_directory ['soccer'][0] = 'Andres' 
@@ -45,8 +45,7 @@ dojo = {
     'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
-def printinfo(some_dict) : 
-    def printInfo(some_dict):
+def printinfo(some_dict):
     for key, values in some_dict.items():
         print(f"{len(values)} {key.upper()}")
         for value in values:
