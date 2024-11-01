@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dojo Survey</h1>
+    <form action="/process" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        
+        <label for="language">Favorite Language:</label>
+        <select name="language">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+        </select>
+        
+        <label>Do you like coding?</label>
+        <input type="radio" name="coding" value="yes"> Yes
+        <input type="radio" name="coding" value="no"> No
+        
+        <label>Frameworks you use:</label>
+        <input type="checkbox" name="frameworks" value="Flask"> Flask
+        <input type="checkbox" name="frameworks" value="Django"> Django
+        <input type="checkbox" name="frameworks" value="React"> React
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

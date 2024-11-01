@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Survey Results</h1>
+    <p>Name: {{ session['name'] }}</p>
+    <p>Favorite Language: {{ session['language'] }}</p>
+    <p>Coding: {{ session.get('coding', 'Not answered') }}</p>
+    <p>Frameworks: {{ session.get('frameworks', 'Not answered') }}</p>
+    <a href="/">Back to form</a>
+</body>
+</html>
