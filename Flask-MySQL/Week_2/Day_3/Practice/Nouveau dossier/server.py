@@ -19,25 +19,22 @@ def new():
 def create():
     print(request.form)
     user_id=User.save(request.form)
-    return redirect('/users/'+str(user_id))
+    return redirect('/user/'+str(user_id))
 
-@app.route('/users/<int:id>')
-def display_user(id):
-    user = User.get_one({'id':id})
-    return render_template("readone.html",user=user)
-
-@app.route('/user/create',methods=['POST'])
-def create():
-    print(request.form)
-    user_id=User.save(request.form)
-    return redirect('/users/'+str(user_id))
+@app.route('/user/<int:id>')
+def get_one(id):
+    user=User.get_one({'id':id})
+    return render_template('readone.html', user=user)
 
 @app.route('/users/<int:id>/edit')
-def display_user(id):
+def display_edit(id):
     user = User.get_one({'id':id})
     return render_template("edit.html",user=user)
 
-
+@app.route('/users/delete/<int:id>')
+def delete_user(id):
+    User.delete({'id': id})
+    return redirect('/users')
 
 if __name__=="__main__":
     app.run(debug=True)

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    .container{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #flash{
+        background-color: rgb(240, 117, 117);
+        margin-top: -10px;
+    }
+    .login_flash{
+        background-color: rgb(240, 117, 117);
+    }
+    .registration{
+        background-color: rgb(175, 228, 211);
+        padding: 20px;
+    }
+    .login{
+        background-color: rgb(175,228,211);
+        padding: 20px;
+    }
+    input{
+        border-radius: 20px;
+        border: none;
+    }
+    button{
+        border-radius: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="registration">
+            <form action="/user/registration" method="POST">
+                <h1>Registration</h1>
+                <label for="first_name">First name</label>
+                <input type="text" name="first_name">
+                {% for message in get_flashed_messages(category_filter=["first_name_validation"]) %}
+                <div id="flash">
+                    {{message}}         
+                </div>
+                {% endfor %}
+                <label for="last_name">Last name</label>
+                <input type="text" name="last_name">
+                {% for message in get_flashed_messages(category_filter=["lastt_name_validation"]) %}
+                <div id="flash">
+                    {{message}}  
+                </div>
+                {% endfor %}       
+                <label for="email">Email</label>
+                <input type="email" name="email">
+                {% for message in get_flashed_messages(category_filter=["email_validation"]) %}
+                <div id="flash">
+                    {{message}}   
+                </div>
+                {% endfor %}      
+                <label for="password">Enter password</label>
+                <input type="password" name="password">
+                {% for message in get_flashed_messages(category_filter=["password_validation"]) %}
+                <div id="flash">
+                    {{message}}   
+                </div>
+                {% endfor %} 
+                <label for="confirm_password">Confirm password</label>
+                <input type="password" name="confirm_password">
+                {% for message in get_flashed_messages(category_filter=["confirm_password_validation"]) %}
+                <div id="flash">
+                    {{message}}   
+                </div>
+                {% endfor %} 
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <div class="login" >
+            <h1>Log in</h1>
+            <form action="/login" method="POST">
+                <label for="email">Enter your email</label>
+                <input type="email" name="email">
+                <label for="password">Enter your password</label>
+                <input type="password" name="password">
+                {% for message in get_flashed_messages(category_filter=['login']) %}
+                    <p class="login_flash">{{message}}</p>
+                {% endfor %}
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

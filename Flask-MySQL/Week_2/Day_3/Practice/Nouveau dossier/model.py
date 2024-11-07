@@ -31,4 +31,21 @@ class User:
         user=User(results[0])
         return user 
     
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        return connectToMySQL('users_schema').query_db(query,data)
+    
+    # @classmethod
+    # def get_edit(cls,data):
+    #     query ="SELECT * FROM users WHERE id = %(id)s ;"
+    #     results=connectToMySQL('users_schema').query_db(query,data)
+    #     user=User(results[0])
+    #     return user 
+    
+    # @classmethod
+    # def save_edit(cls, data):
+    #     query = "INSERT INTO users (first_name,last_name,email) VALUES (%(first_name)s,%(last_name)s,%(email)s);"
+    #     result = connectToMySQL('users_schema').query_db(query,data)
+    #     return result
     

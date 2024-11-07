@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0 auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container{
+        width: 500px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 10px;
+        background-color: bisque;
+        
+    }
+    button{
+        background-color: rgb(42, 84, 237);
+        border: none;
+        border-radius: 30px;
+        height: 30px;
+        width: 80px;
+    }
+    button a{
+        color: white;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Welcome {{user.first_name}} !</h1>
+        <button><a href="/logout">Logout</a></button>
+    </div>
+</body>
+</html>
