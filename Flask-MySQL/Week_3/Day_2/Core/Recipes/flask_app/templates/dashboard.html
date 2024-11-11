@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{user.first_name}}</h1>
+    <a href="/logout">Logout</a>
+    <h2>All parties</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>What</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>All ages</th>
+                <th>Posted by</th>
+                <th>Actions</th>
+            </tr>
+        
+        </thead>
+        <tbody>
+            {% for p in parties %}
+            <tr>
+                <td>{{p.title}}</td>
+                <td>{{p.location}}</td>
+                <td>{{p.date}}</td>
+                <td>{% if p.all_ages==1 %}
+                    TRUE
+                    {% else %}
+                    False
+                    {% endif %}
+                </td>
+                <td>{{p.poster}}</td>
+                <td>
+                    <a href="/parties/{{p.id}}"></a>
+                    {% if p.user_id == session['user_id'] %}
+                    <a href="/parties/{{p.id}}/edit">Edit</a>
+                    <a href="/parties/{{p.id}}delete">Cancel</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

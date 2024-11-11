@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    form{
+        display: flex;
+
+flex-direction: column;}
+</style>
+<body>
+    <div class="container">
+        <div class="registration">
+            <h1>registration</h1>
+            <form action="/users/create" method="POST">
+                <label for="first_name">First_name</label>
+                <input type="text" name="first_name" id="">
+                <label for="last_name">last_name</label>
+                <input type="text" name="last_name">
+                <label for="email">Email</label>
+                <input type="text" name="email">
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" id="">
+                <label for="confirm_password">Confirm password</label>
+                <input type="password" name="confirm_password">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        {% for message in get_flashed_messages(category_filter=['login']) %}
+            <p class="h4 bg-warning text-danger">{{message}}</p>
+        {% endfor %}
+        <div class="log_in">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <label for="email">Enter your email</label>
+                <input type="text" name="email">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
