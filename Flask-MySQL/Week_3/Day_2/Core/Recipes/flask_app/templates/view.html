@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="d-flex justify-content-between mb-3">
+            <h1>WELCOME {{logged_user.first_name}},{{logged_user.last_name}}</h1>
+            <div class="d-flex justify-content-between gap-2">
+                <div>
+                    <a href="/recipe" class="btn btn-primary">back to recipes</a>
+                </div>
+                <form action="/logout" method="post">
+                    <input type="submit" value="logout" class="btn btn-danger btn-lg">
+                </form>
+            </div>
+            <h4>{{logged_user.posted_by}}</h4>
+        </nav>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Description</th>
+                <th>Under 30 Minutes?</th>
+                <th>Instructions</th>
+                <th>Date Made</th>
+            </tr>
+            <tbody>
+                {%for recipe in recipes %}
+                <tr>
+                    <td>{{recipe.description}}</td>
+                    <td>{%if recipe.under_30_min==1 %}
+                        True
+                        {%else%}
+                        False
+                        {%endif%}
+                    </td>
+                    <td>{{recipe.instructions}}</td>
+                    <td>{{recipe.date_mode}}</td>
+                    {%endfor%}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
